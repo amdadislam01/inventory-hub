@@ -1,8 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Package, Folders, ShoppingCart, RefreshCw, LogOut } from 'lucide-react';
+import { LayoutDashboard, Package, Folders, ShoppingCart, RefreshCw, LogOut, Menu, X } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
 const navItems = [
@@ -16,16 +17,49 @@ const navItems = [
 export default function Sidebar() {
   const pathname = usePathname();
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close sidebar when route changes on mobile
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
-    <aside className="w-64 bg-background border-r border-border flex flex-col h-screen sticky top-0">
-      <div className="h-16 flex items-center px-6 border-b border-border">
+    <>
+      {/* Mobile Top Bar */}
+      <div className="md:hidden flex items-center justify-between p-4 border-b border-border bg-background z-30">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
             <Package className="text-zinc-950 w-5 h-5" />
           </div>
           <span className="text-lg font-bold text-foreground">InventoryHub</span>
         </div>
+        <button onClick={() => setIsOpen(true)} className="p-2 text-muted-foreground hover:bg-muted rounded-lg transition-colors cursor-pointer">
+          <Menu className="w-6 h-6" />
+        </button>
       </div>
+
+      {/* Mobile Backdrop */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden" 
+          onClick={() => setIsOpen(false)} 
+        />
+      )}
+
+      {/* Sidebar Aside */}
+      <aside className={`fixed md:static inset-y-0 left-0 z-50 w-64 bg-background border-r border-border flex flex-col h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 overflow-hidden`}>
+        <div className="h-16 flex items-center justify-between px-6 border-b border-border">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
+              <Package className="text-zinc-950 w-5 h-5" />
+            </div>
+            <span className="text-lg font-bold text-foreground">InventoryHub</span>
+          </div>
+          <button onClick={() => setIsOpen(false)} className="md:hidden p-2 text-muted-foreground hover:bg-muted rounded-lg cursor-pointer">
+             <X className="w-5 h-5" />
+          </button>
+        </div>
 
       <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
         {navItems.map((item) => {
@@ -58,5 +92,6 @@ export default function Sidebar() {
         </button>
       </div>
     </aside>
+    </>
   );
 }
