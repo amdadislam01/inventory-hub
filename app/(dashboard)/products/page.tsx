@@ -185,22 +185,22 @@ export default function ProductsPage() {
           <table className="w-full text-left">
             <thead className="bg-card border-b border-border text-muted-foreground text-sm">
               <tr>
-                <th className="px-6 py-4 font-medium">Product Name</th>
-                <th className="px-6 py-4 font-medium">Category</th>
-                <th className="px-6 py-4 font-medium">Price</th>
-                <th className="px-6 py-4 font-medium">Status</th>
-                <th className="px-6 py-4 font-medium">Stock</th>
-                <th className="px-6 py-4 font-medium">Alert Threshold</th>
-                <th className="px-6 py-4 font-medium text-right">Actions</th>
+                <th className="px-4 md:px-6 py-4 font-medium">Product Name</th>
+                <th className="px-4 md:px-6 py-4 font-medium hidden md:table-cell">Category</th>
+                <th className="px-4 md:px-6 py-4 font-medium hidden sm:table-cell">Price</th>
+                <th className="px-4 md:px-6 py-4 font-medium hidden lg:table-cell">Status</th>
+                <th className="px-4 md:px-6 py-4 font-medium">Stock</th>
+                <th className="px-4 md:px-6 py-4 font-medium hidden xl:table-cell">Alert Threshold</th>
+                <th className="px-4 md:px-6 py-4 font-medium text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-800">
               {products.map((p: any) => (
                 <tr key={p._id} className="hover:bg-card transition-colors">
-                  <td className="px-6 py-4 text-card-foreground font-medium">{p.name}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{p.category?.name || 'Unknown'}</td>
-                  <td className="px-6 py-4 text-muted-foreground">${p.price?.toFixed(2)}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 md:px-6 py-4 text-card-foreground font-medium">{p.name}</td>
+                  <td className="px-4 md:px-6 py-4 text-muted-foreground hidden md:table-cell">{p.category?.name || 'Unknown'}</td>
+                  <td className="px-4 md:px-6 py-4 text-muted-foreground hidden sm:table-cell">${p.price?.toFixed(2)}</td>
+                  <td className="px-4 md:px-6 py-4 hidden lg:table-cell">
                      <span className={`px-2 py-1 flex items-center justify-center w-28 text-xs font-semibold rounded-full border ${
                           p.status === 'Active' 
                             ? p.stock <= p.threshold 
@@ -211,9 +211,9 @@ export default function ProductsPage() {
                           {p.status === 'Active' && p.stock <= p.threshold ? 'Low Stock' : p.status}
                      </span>
                   </td>
-                  <td className="px-6 py-4 text-muted-foreground font-medium">{p.stock}</td>
-                  <td className="px-6 py-4 text-muted-foreground">{p.threshold} units</td>
-                  <td className="px-6 py-4 text-right">
+                  <td className="px-4 md:px-6 py-4 text-muted-foreground font-medium">{p.stock}</td>
+                  <td className="px-4 md:px-6 py-4 text-muted-foreground hidden xl:table-cell">{p.threshold} units</td>
+                  <td className="px-4 md:px-6 py-4 text-right">
                      <button onClick={() => handleDelete(p._id, p.name)} className="p-2 text-muted-foreground hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors cursor-pointer">
                         <Trash2 className="w-4 h-4" />
                      </button>
