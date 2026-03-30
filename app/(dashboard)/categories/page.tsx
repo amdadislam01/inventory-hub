@@ -103,7 +103,7 @@ export default function CategoriesPage() {
               <th className="px-6 py-4 font-medium text-right">Created At</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-zinc-800">
+          <tbody className="divide-y divide-zinc-300">
             {cats.map((cat: any) => (
               <tr key={cat._id} className="hover:bg-card transition-colors">
                 <td className="px-6 py-4 text-card-foreground font-medium">{cat.name}</td>
