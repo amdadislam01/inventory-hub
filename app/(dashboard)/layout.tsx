@@ -17,9 +17,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
         <div className="absolute bottom-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-cyan-500/5 blur-[120px]" />
       </div>
       
-      <div className="relative z-10 flex w-full h-full">
+      <div className="relative z-10 flex flex-col md:flex-row w-full h-full">
         <Sidebar />
-        <main className="flex-1 overflow-y-auto w-full">
+        <main className="flex-1 overflow-y-auto w-full min-w-0">
           {children}
         </main>
       </div>
