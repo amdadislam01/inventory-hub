@@ -92,7 +92,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-lg px-4 py-2.5 transition-colors flex items-center justify-center"
+          className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-lg px-4 py-2.5 transition-colors flex items-center justify-center cursor-pointer"
         >
           {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Log In'}
         </button>
@@ -110,7 +110,7 @@ export default function LoginPage() {
       <button
         onClick={handleDemoLogin}
         disabled={loading}
-        className="w-full bg-muted hover:bg-zinc-700 border border-border text-foreground font-medium rounded-lg px-4 py-2.5 transition-colors"
+        className="w-full bg-muted hover:bg-emerald-500 hover:font-bold border border-border text-foreground font-medium rounded-lg px-4 py-2.5 transition-colors cursor-pointer"
       >
         Demo Login
       </button>
