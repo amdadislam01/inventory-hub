@@ -194,7 +194,7 @@ export default function ProductsPage() {
                 <th className="px-4 md:px-6 py-4 font-medium text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-800">
+            <tbody className="divide-y divide-zinc-300">
               {products.map((p: any) => (
                 <tr key={p._id} className="hover:bg-card transition-colors">
                   <td className="px-4 md:px-6 py-4 text-card-foreground font-medium">{p.name}</td>
