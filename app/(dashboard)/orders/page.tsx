@@ -103,7 +103,7 @@ export default function OrdersPage() {
                 <th className="px-6 py-4 font-medium">Status / Update</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-800">
+            <tbody className="divide-y divide-zinc-300">
               {orders.map((order: any) => (
                 <tr key={order._id} className="hover:bg-card transition-colors">
                   <td className="px-6 py-4 text-muted-foreground text-xs font-mono">
