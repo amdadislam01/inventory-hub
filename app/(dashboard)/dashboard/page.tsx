@@ -85,16 +85,16 @@ export default function DashboardPage() {
               <table className="w-full text-left">
                 <thead className="bg-card border-b border-border text-muted-foreground text-sm">
                   <tr>
-                    <th className="px-6 py-4 font-medium">Product Name</th>
-                    <th className="px-6 py-4 font-medium">Status</th>
-                    <th className="px-6 py-4 font-medium">Stock</th>
+                    <th className="px-4 md:px-6 py-4 font-medium">Product Name</th>
+                    <th className="px-4 md:px-6 py-4 font-medium hidden sm:table-cell">Status</th>
+                    <th className="px-4 md:px-6 py-4 font-medium text-right sm:text-left">Stock</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-zinc-800">
                   {data?.productSummary?.map((product: any) => (
                     <tr key={product._id} className="hover:bg-card transition-colors">
-                      <td className="px-6 py-4 text-card-foreground font-medium">{product.name}</td>
-                      <td className="px-6 py-4">
+                      <td className="px-4 md:px-6 py-4 text-card-foreground font-medium">{product.name}</td>
+                      <td className="px-4 md:px-6 py-4 hidden sm:table-cell">
                         <span className={`px-3 py-1 text-xs font-semibold rounded-full border ${
                           product.status === 'Active' 
                             ? product.stock < product.threshold 
@@ -105,7 +105,7 @@ export default function DashboardPage() {
                           {product.status === 'Active' && product.stock < product.threshold ? 'Low Stock' : product.status}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-muted-foreground">{product.stock} units</td>
+                      <td className="px-4 md:px-6 py-4 text-muted-foreground text-right sm:text-left">{product.stock} units</td>
                     </tr>
                   ))}
                   {(!data?.productSummary || data.productSummary.length === 0) && (
