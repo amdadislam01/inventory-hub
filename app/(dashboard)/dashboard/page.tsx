@@ -90,7 +90,7 @@ export default function DashboardPage() {
                     <th className="px-4 md:px-6 py-4 font-medium text-right sm:text-left">Stock</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-800">
+                <tbody className="divide-y divide-zinc-300">
                   {data?.productSummary?.map((product: any) => (
                     <tr key={product._id} className="hover:bg-card transition-colors">
                       <td className="px-4 md:px-6 py-4 text-card-foreground font-medium">{product.name}</td>
