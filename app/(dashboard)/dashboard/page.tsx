@@ -3,23 +3,28 @@
 import { useEffect, useState } from 'react';
 import StatCard from '@/components/ui/StatCard';
 import ActivityFeed from '@/components/ui/ActivityFeed';
+import SalesChart from '@/components/ui/SalesChart';
+import CategoryChart from '@/components/ui/CategoryChart';
 import { ShoppingCart, CheckCircle, AlertTriangle, DollarSign, Package } from 'lucide-react';
 
 export default function DashboardPage() {
   const [data, setData] = useState<any>(null);
   const [logs, setLogs] = useState([]);
+  const [reportsData, setReportsData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [dashRes, logsRes] = await Promise.all([
+        const [dashRes, logsRes, reportsRes] = await Promise.all([
           fetch('/api/dashboard'),
           fetch('/api/logs'),
+          fetch('/api/reports'),
         ]);
 
         if (dashRes.ok) setData(await dashRes.json());
         if (logsRes.ok) setLogs(await logsRes.json());
+        if (reportsRes.ok) setReportsData(await reportsRes.json());
       } catch (error) {
         console.error('Error fetching dashboard data:', error);
       } finally {
@@ -72,6 +77,16 @@ export default function DashboardPage() {
           icon={AlertTriangle}
           color="rose"
         />
+      </div>
+
+      {/* Interactive Charts Preview */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <SalesChart data={reportsData?.salesOverTime} title="Sales Revenue (Last 30 Days)" />
+        </div>
+        <div>
+          <CategoryChart data={reportsData?.categoryBreakdown} title="Sales by Category" />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

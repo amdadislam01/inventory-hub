@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Package, Folders, ShoppingCart, RefreshCw, LogOut, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Package, Folders, ShoppingCart, RefreshCw, LogOut, Menu, X, BarChart3 } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
 const navItems = [
@@ -12,6 +12,7 @@ const navItems = [
   { name: 'Products', href: '/products', icon: Package },
   { name: 'Categories', href: '/categories', icon: Folders },
   { name: 'Restock Queue', href: '/restock', icon: RefreshCw },
+  { name: 'Reports', href: '/reports', icon: BarChart3 },
 ];
 
 export default function Sidebar() {
@@ -27,7 +28,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile Top Bar */}
-      <div className="md:hidden flex items-center justify-between p-4 border-b border-border bg-background z-30">
+      <div className="md:hidden flex items-center justify-between p-4 border-b border-border bg-background z-30 print:hidden">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
             <Package className="text-zinc-950 w-5 h-5" />
@@ -42,13 +43,13 @@ export default function Sidebar() {
       {/* Mobile Backdrop */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden" 
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden print:hidden" 
           onClick={() => setIsOpen(false)} 
         />
       )}
 
       {/* Sidebar Aside */}
-      <aside className={`fixed md:static inset-y-0 left-0 z-50 w-64 bg-background border-r border-border flex flex-col h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 overflow-hidden`}>
+      <aside className={`fixed md:static inset-y-0 left-0 z-50 w-64 bg-background border-r border-border flex flex-col h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 overflow-hidden print:hidden`}>
         <div className="h-16 flex items-center justify-between px-6 border-b border-border">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
