@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/db';
 import Category from '@/models/Category';
+import ActivityLog from '@/models/ActivityLog';
 
 export async function GET() {
   try {
@@ -29,6 +30,11 @@ export async function POST(req: NextRequest) {
     }
 
     const newCategory = await Category.create({ name });
+
+    await ActivityLog.create({
+      action: `Category created: "${name}"`,
+    });
+
     return NextResponse.json(newCategory, { status: 201 });
   } catch (error: any) {
     return NextResponse.json({ message: 'Failed to create category', error: error.message }, { status: 500 });
