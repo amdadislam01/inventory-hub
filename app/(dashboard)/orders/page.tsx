@@ -83,7 +83,7 @@ export default function OrdersPage() {
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-xl px-5 py-2.5 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20"
+          className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl px-5 py-2.5 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20"
         >
           <Plus className="w-5 h-5" />
           Create Order

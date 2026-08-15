@@ -26,7 +26,7 @@ export default function StatCard({ title, value, icon: Icon, trend, color }: Sta
       
       <div className="flex items-start justify-between relative z-10">
         <div>
-          <p className="text-sm font-medium text-muted-foreground">{title}</p>
+          <p className="text-base font-semibold text-muted-foreground">{title}</p>
           <h3 className="text-3xl font-bold text-foreground mt-2">{value}</h3>
         </div>
         <div className={`p-3 rounded-xl border ${colorMap[color]}`}>

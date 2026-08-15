@@ -114,7 +114,7 @@ export default function RestockPage() {
                         <button
                             onClick={() => handleRestock(p._id, p.stock)}
                             disabled={updatingId === p._id || !restockStock[p._id]}
-                            className="bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-black font-semibold rounded-lg p-2 transition-colors flex items-center justify-center"
+                            className="bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-white font-semibold rounded-lg p-2 transition-colors flex items-center justify-center"
                             title="Restock Item"
                         >
                             {updatingId === p._id ? <Loader2 className="w-5 h-5 animate-spin" /> : <Plus className="w-5 h-5" />}

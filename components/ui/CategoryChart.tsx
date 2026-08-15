@@ -46,7 +46,7 @@ export default function CategoryChart({ data = [], title = 'Sales by Category', 
             <Folders className="w-5 h-5 text-cyan-500" />
             {title}
           </h3>
-          <span className="text-[10px] font-mono text-muted-foreground bg-muted border border-border px-2 py-0.5 rounded-md">
+          <span className="text-xs font-mono font-semibold text-muted-foreground bg-muted border border-border px-2.5 py-1 rounded-md">
             Total: ${totalCategoryRevenue.toLocaleString(undefined, { maximumFractionDigits: 0 })}
           </span>
         </div>
@@ -77,11 +77,11 @@ export default function CategoryChart({ data = [], title = 'Sales by Category', 
 
             return (
               <div key={category.name} className="space-y-1.5 group/item">
-                <div className="flex justify-between text-xs font-semibold">
+                <div className="flex justify-between text-sm font-bold">
                   <span className="text-foreground group-hover/item:text-cyan-500 transition-colors">
                     {category.name}
                   </span>
-                  <span className="text-muted-foreground font-mono">
+                  <span className="text-card-foreground font-mono font-bold">
                     ${category.value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
@@ -93,9 +93,9 @@ export default function CategoryChart({ data = [], title = 'Sales by Category', 
                   />
                 </div>
 
-                <div className="flex justify-between text-[10px] text-muted-foreground font-medium font-mono pt-0.5">
+                <div className="flex justify-between text-xs text-muted-foreground font-semibold font-mono pt-0.5">
                   <span className="flex items-center gap-1">
-                    <ShoppingBag className="w-3 h-3" />
+                    <ShoppingBag className="w-3.5 h-3.5" />
                     {category.quantity} units sold
                   </span>
                   <span>{contribution.toFixed(1)}% of sales</span>

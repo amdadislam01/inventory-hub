@@ -171,7 +171,7 @@ export default function ProductsPage() {
             <button
               type="submit"
               disabled={submitLoading}
-              className="w-full bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-black font-medium text-sm rounded-lg px-4 py-2 transition-colors flex items-center justify-center gap-2 h-[38px] cursor-pointer"
+              className="w-full bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-white font-medium text-sm rounded-lg px-4 py-2 transition-colors flex items-center justify-center gap-2 h-[38px] cursor-pointer"
             >
               {submitLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
               {submitLoading ? 'Saving...' : 'Add'}

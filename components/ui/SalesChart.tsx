@@ -32,11 +32,11 @@ export default function SalesChart({ data = [], title = 'Sales Revenue Trend', l
   const maxRevenue = Math.max(...data.map((d) => d.revenue), 100);
 
   const svgWidth = 600;
-  const svgHeight = 220;
-  const paddingLeft = 55;
+  const svgHeight = 230;
+  const paddingLeft = 70;
   const paddingRight = 20;
   const paddingTop = 20;
-  const paddingBottom = 35;
+  const paddingBottom = 40;
 
   const chartWidth = svgWidth - paddingLeft - paddingRight;
   const chartHeight = svgHeight - paddingTop - paddingBottom;
@@ -66,7 +66,7 @@ export default function SalesChart({ data = [], title = 'Sales Revenue Trend', l
           <TrendingUp className="w-5 h-5 text-emerald-500" />
           {title}
         </h3>
-        <span className="text-xs text-muted-foreground px-2.5 py-1 bg-muted rounded-full border border-border font-medium print:hidden">
+        <span className="text-xs text-muted-foreground px-2.5 py-1 bg-muted rounded-full border border-border font-semibold print:hidden">
           Interactive
         </span>
       </div>
@@ -106,9 +106,9 @@ export default function SalesChart({ data = [], title = 'Sales Revenue Trend', l
                   className="opacity-70"
                 />
                 <text
-                  x={paddingLeft - 10}
-                  y={y + 3}
-                  className="text-[10px] font-semibold fill-muted-foreground/80 font-mono"
+                  x={paddingLeft - 12}
+                  y={y + 4}
+                  className="text-[12px] font-bold fill-foreground/80 font-mono"
                   textAnchor="end"
                 >
                   ${Math.round(level * maxRevenue).toLocaleString()}
@@ -146,8 +146,8 @@ export default function SalesChart({ data = [], title = 'Sales Revenue Trend', l
               <text
                 key={i}
                 x={p.x}
-                y={svgHeight - 12}
-                className="text-[9px] font-semibold fill-muted-foreground/80 font-mono"
+                y={svgHeight - 8}
+                className="text-[11px] font-bold fill-foreground/80 font-mono"
                 textAnchor="middle"
               >
                 {p.data.date}

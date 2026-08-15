@@ -159,7 +159,7 @@ export default function OrderModal({ isOpen, onClose, products, onOrderCreated }
                 <button 
                   onClick={handleSubmit} 
                   disabled={loading || selectedProducts.length === 0 || !customerName}
-                  className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-black font-semibold rounded-xl transition-colors flex items-center gap-2"
+                  className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-white font-semibold rounded-xl transition-colors flex items-center gap-2"
                 >
                     {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                     Confirm Order

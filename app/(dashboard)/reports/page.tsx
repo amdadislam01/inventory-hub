@@ -262,7 +262,7 @@ export default function ReportsPage() {
           <button
             onClick={handlePrint}
             disabled={loading}
-            className="flex-1 md:flex-initial bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 cursor-pointer disabled:opacity-50"
+            className="flex-1 md:flex-initial bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 cursor-pointer disabled:opacity-50"
           >
             <Printer className="w-4 h-4" />
             Print Report
@@ -346,7 +346,7 @@ export default function ReportsPage() {
             </div>
             <button
               type="submit"
-              className="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold text-xs rounded-lg px-4 py-2 flex items-center justify-center gap-1 transition-all h-[38px] cursor-pointer shadow-md shadow-emerald-500/10"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs rounded-lg px-4 py-2 flex items-center justify-center gap-1 transition-all h-[38px] cursor-pointer shadow-md shadow-emerald-500/10"
             >
               Apply Filter
             </button>
