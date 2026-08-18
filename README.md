@@ -1,5 +1,6 @@
 # Inventory Hub - Smart Inventory & Order Management System
 
+
 Welcome to **Inventory Hub**, a comprehensive, modern, and highly responsive web application built to streamline inventory tracking, order management, and overall business operations.
 
 ##  Overview
